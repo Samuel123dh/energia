@@ -1,0 +1,89 @@
+/* ============ RESET & VARIÁVEIS ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #03060f;
+  --bg-alt: #070c1a;
+  --panel: rgba(10, 20, 40, 0.72);
+  --border: rgba(0, 200, 255, 0.22);
+  --blue: #1e90ff;
+  --cyan: #00e5ff;
+  --white: #eaf6ff;
+  --muted: #8fb3cc;
+  --yellow: #ffd23f;
+  --danger: #ff4d5e;
+  --glow: 0 0 24px rgba(0, 229, 255, 0.35);
+  --font-title: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(0, 120, 200, 0.15), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.10), transparent 45%),
+    var(--bg);
+  color: var(--white);
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* grade de circuitos de fundo */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 200, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 200, 255, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+h1, h2, h3 { font-family: var(--font-title); letter-spacing: 0.5px; }
+a { color: var(--cyan); text-decoration: none; }
+strong { color: var(--white); }
+
+/* ============ HEADER ============ */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.7rem 2rem;
+  background: rgba(3, 6, 15, 0.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo { display: flex; align-items: center; gap: 0.5rem; }
+.bolt { font-size: 1.6rem; filter: drop-shadow(0 0 8px var(--cyan)); }
+.logo-text {
+  font-family: var(--font-title);
+  font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;
+}
+.logo-text em { color: var(--cyan); font-style: normal; }
+
+.main-nav { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+.main-nav a {
+  color: var(--muted); font-weight: 600; font-size: 0.95rem;
+  transition: color .25s, text-shadow .25s;
+  position: relative;
+}
+.main-nav a:hover { color: var(--cyan); text-shadow: 0 0 12px var(--cyan); }
+
+.nav-toggle {
+  display: none;
+  background: none; border: 1px solid var(--border); color: var(--white);
+  font-size: 1.4rem; padding: 0.3rem 0.7rem; border-radius: 8px; cursor: pointer;
+}
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align
